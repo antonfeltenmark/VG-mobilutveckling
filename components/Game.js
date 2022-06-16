@@ -11,17 +11,18 @@ const Game = () => {
 
   const handlePress = (move) => {
     const randomComputerMove = Math.floor(Math.random() * 3) + 1;
-    /*  let date = new Date(); 
+    
 
-    let fordate = date.format("MMMM Do YYYY, h:mm:ss"); */
-    let date = new Date().toLocaleString();
-    let formattedDate = moment().format("MMMM Do YYYY, h:mm a");
+    /* let fordate = date("MMMM Do YYYY, h:mm:ss");  */
+     let date = new Date();
+    /* let formattedDate = date.format("MMMM Do YYYY, h:mm a");  */
+    let sweTime = date.toLocaleString("sv-SE");
 
    
     //1 = sten , 2 = sax , 3 = påse
     if (move === 1 && randomComputerMove === 2) {
       setWinner("Player won!");
-      const match = new Match(winner, formattedDate);
+      const match = new Match(winner, sweTime);
       insert(match)
         .then((res) => {
           console.log("insertres:", res);
@@ -37,7 +38,7 @@ const Game = () => {
     else if (move === 2 && randomComputerMove === 3) {
       setWinner("Player won!");
       
-      const match = new Match(winner, formattedDate);
+      const match = new Match(winner, sweTime);
       insert(match)
         .then((res) => {
           console.log("insertres:", res);
@@ -48,7 +49,7 @@ const Game = () => {
 
     else if (move === 3 && randomComputerMove === 1) {
       setWinner("Player won!");
-      const match = new Match(winner, formattedDate);
+      const match = new Match(winner, sweTime);
       insert(match)
         .then((res) => {
           console.log("insertres:", res);
@@ -59,7 +60,7 @@ const Game = () => {
 
     else if (move === randomComputerMove) {
       setWinner("It was a draw!");
-      const match = new Match(winner, formattedDate);
+      const match = new Match(winner, sweTime);
       insert(match)
         .then((res) => {
           console.log("insertres:", res);
@@ -70,7 +71,7 @@ const Game = () => {
     
     else {
       setWinner("Computer won!");
-      const match = new Match(winner, formattedDate);
+      const match = new Match(winner, sweTime);
       insert(match)
         .then((res) => {
           console.log("insertres:", res);
